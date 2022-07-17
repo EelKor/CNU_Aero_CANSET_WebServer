@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<meta name="viewport" content="user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,width=device-width"/>
+
+		<title>	WE CAN Help </title>
+	</head>
+
+	<body>
+		<?php
+			echo '데이터베이스 읽는중';
+			$mysql_hostname = 'localhost';
+			$mysql_username = 'canset';
+			$mysql_password = 'canset';
+			$mysql_database = 'canset';
+
+			$conn = mysqli_connect($mysql_hostname,$mysql_username,$mysql_password,$mysql_database);
+			if(!$conn) die('DB ERROR');
+			mysqli_query($conn, 'set session character_set_connection=utf8;');
+			mysqli_query($conn, 'set session character_set_result=utf8;');
+			mysqli_query($conn, 'set session character_set_client=utf8;');
+
+			$query = 'SELECT * FROM information';
+			$result = mysqli_query($conn, $query);
+				
+			mysqli_close($conn);
+	 ?>
+
+		<h3> 비상통신망에 접속하려면 접속 버튼을 누르십시오 </h2>
+		<h3> To Connect Emergency Network, Press Connect Button </h2>
+		<button type='button' class='navyBtn' onClick="location.href='home.html'">
+		<input type='button' value = "생존자 네트워크 접속">
+		
+		<button type='button' class='navyBtn' onClick="location.href='sos.html'">
+		<input type='button' value = "구조요청">
+
+	</body>
+</html>
